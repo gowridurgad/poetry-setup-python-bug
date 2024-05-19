@@ -23,9 +23,9 @@ jobs:
         shell: bash
 
       - uses: actions/setup-python@v4
-      with:
-        python-version: 3.10.9
-        cache: poetry
+        with:
+          python-version: 3.10.9
+          cache: poetry
 
       - name: Install Dev/Test Dependencies
         run: poetry install --with dev,test --all-extras
@@ -47,9 +47,9 @@ jobs:
         shell: bash
 
       - uses: actions/setup-python@v4
-      with:
-        python-version: 3.10.9
-        cache: poetry
+        with:
+          python-version: 3.10.9
+          cache: poetry
 
       - name: Install Dev/Test Dependencies
         run: poetry install

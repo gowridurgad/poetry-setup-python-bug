@@ -10,6 +10,7 @@ packages = [{include = "src/module"}]
 python = "^3.10.9"
 numpy = "^1.22.3"
 tqdm = {version = "4.66.4", optional = true }
+pandas = "^2.2.2"
 
 [tool.poetry.group.dev]
 optional=true
