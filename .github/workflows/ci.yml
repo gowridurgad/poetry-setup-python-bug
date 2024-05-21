@@ -25,7 +25,7 @@ jobs:
         run: poetry install --with dev,test --all-extras
 
       - name: Run list
-        run: pip list
+        run: poetry run pip list
   
   project-ci2:
     runs-on: ubuntu-latest
@@ -49,4 +49,4 @@ jobs:
         run: poetry install
 
       - name: Run list
-        run: pip list
+        run: poetry run pip list
