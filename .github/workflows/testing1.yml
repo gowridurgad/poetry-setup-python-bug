@@ -1,4 +1,4 @@
-name: poetryTest
+name: testing
 on:
   workflow_dispatch:
 jobs:
