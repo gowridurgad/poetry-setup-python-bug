@@ -14,3 +14,5 @@ jobs:
          python-version: '3.12.3'
          cache: 'poetry'
     - run: poetry install
+    - name: Check Poetry Python version
+      run: poetry env info
