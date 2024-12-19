@@ -10,10 +10,10 @@ jobs:
       fail-fast: false
       matrix:
         target:
-          - os: "windows-latest"
+          - os: "ubuntu-latest"
             architecture: "x64"
-          - os: "windows-latest"
-            architecture: "arm64"
+          - os: "ubuntu-latest"
+            architecture: "x86"
     defaults:
       run:
         shell: bash
