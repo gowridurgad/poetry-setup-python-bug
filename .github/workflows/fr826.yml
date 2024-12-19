@@ -6,16 +6,8 @@ on:
 
 jobs:
   build:
-    strategy:
-      fail-fast: false
-      matrix:
-        target:
-          - os: "windows-latest"
-            architecture: "x86"
-    defaults:
-      run:
-        shell: bash
-    runs-on: ${{ matrix.target.os }}
+   
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -26,5 +18,5 @@ jobs:
         id: setup-python
         with:
           python-version: "3.11"
-          architecture: ${{ matrix.target.architecture }}
+          architecture: "x86"
           cache: "poetry"
