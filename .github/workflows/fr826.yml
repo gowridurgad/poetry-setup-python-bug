@@ -10,9 +10,7 @@ jobs:
       fail-fast: false
       matrix:
         target:
-          - os: "ubuntu-latest"
-            architecture: "x64"
-          - os: "ubuntu-latest"
+          - os: "windows-latest"
             architecture: "x86"
     defaults:
       run:
