@@ -15,5 +15,5 @@ jobs:
       - name: Setup Python
         uses: gowridurgad/setup-python@testing-647pr
         with:
-          python-version-file: '.python-version'
+          python-version-file: '.python-version-file'
          
