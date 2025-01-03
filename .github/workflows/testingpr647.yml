@@ -15,5 +15,5 @@ jobs:
       - name: Setup Python
         uses: gowridurgad/setup-python@647pr-2
         with:
-          python-version-file: 'python-version-file'
+          python-version-file: pyproject.toml
          
