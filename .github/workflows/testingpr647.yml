@@ -15,7 +15,7 @@ jobs:
       - name: Setup Python
         uses:  viccie30/setup-python@multiple-versions-from-version-file
         with:
-          python-version-file: pyproject.toml
+          python-version-file: 'gowri'
 
      
          
