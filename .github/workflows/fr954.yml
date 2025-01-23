@@ -1,4 +1,4 @@
-name: fr826
+name: fr954
 
 on:
   workflow_dispatch:
