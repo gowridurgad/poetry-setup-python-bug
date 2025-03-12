@@ -16,4 +16,5 @@ jobs:
         cache: 'pip'
         cache-dependency-path: 'requirements.txt'
         architecture: 'x64'
+        update-environment: false
        
