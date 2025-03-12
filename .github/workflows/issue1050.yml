@@ -1,0 +1,19 @@
+name: issue1050
+
+on: [workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      id: python
+      with:
+        python-version: '3.13'
+        cache: 'pip'
+        cache-dependency-path: 'requirements.txt'
+        architecture: 'x64'
+        update-environment: false
