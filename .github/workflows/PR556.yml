@@ -1,4 +1,4 @@
-name: Setup GO
+name: PR556
 
 on: workflow_dispatch
 
