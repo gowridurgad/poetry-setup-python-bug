@@ -10,7 +10,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
     
-    - uses: actions/setup-python@v5
+    - uses: gowridurgad/setup-python@test-1050
       id: python
       with:
         python-version: '3.13'
@@ -18,8 +18,5 @@ jobs:
         cache-dependency-path: 'requirements.txt'
         architecture: 'x64'
         update-environment: false
-    - name: Install Python and pip
-      run: |
-          python -m ensurepip
-          python -m pip install --upgrade pip
+   
        
