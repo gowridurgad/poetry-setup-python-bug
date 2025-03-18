@@ -9,8 +9,19 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    
-    - uses: actions/setup-python@v5
+    - name: Install Python
+      run: |
+         choco install python --version=3.13
+         python -m ensurepip
+         python -m pip install --ignore-installed pip
+
+    - name: Add Python to PATH
+      run: |
+         echo "Updating PATH manually"
+         echo "${{ runner.tool_cache }}/Python/3.13.0/x64" >> $GITHUB_PATH
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
       id: python
       with:
         python-version: '3.13'
@@ -18,5 +29,7 @@ jobs:
         cache-dependency-path: 'requirements.txt'
         architecture: 'x64'
         update-environment: false
+
+  
    
        
