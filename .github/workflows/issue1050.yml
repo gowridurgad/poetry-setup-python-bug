@@ -4,13 +4,13 @@ on: [workflow_dispatch]
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: windows_latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
     
-    - uses: gowridurgad/setup-python@test-1050
+    - uses: actions/setup-python@v5
       id: python
       with:
         python-version: '3.13'
