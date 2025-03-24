@@ -9,22 +9,9 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: Install Chocolatey
-      run: |
-          Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-    - name: Install Python
-      run: |
-         choco install python --version=3.13
-         python -m ensurepip
-         python -m pip install --ignore-installed pip
-
-    - name: Add Python to PATH
-      run: |
-         echo "Updating PATH manually"
-         echo "${{ runner.tool_cache }}/Python/3.13.0/x64" >> $GITHUB_PATH
 
     - name: Set up Python
-      uses: actions/setup-python@v5
+      uses: gowridurgad/setup-python@pip-test
       id: python
       with:
         python-version: '3.13'
