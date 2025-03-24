@@ -12,7 +12,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Install Python (if not already installed)
-      shell: pwsh
+      shell: powershell
       run: |
         if (-not (Get-Command python -ErrorAction SilentlyContinue)) {
           Write-Host "Python not found, installing..."
