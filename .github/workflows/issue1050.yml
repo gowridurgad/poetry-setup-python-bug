@@ -28,6 +28,9 @@ jobs:
           Write-Host "Python already installed"
         }
 
+        # Refresh the environment to pick up the new PATH
+        $env:PATH = [System.Environment]::GetEnvironmentVariable("PATH", [System.EnvironmentVariableTarget]::Machine)
+        
         # Verify if Python is installed and accessible
         $pythonPath = Get-Command python -ErrorAction SilentlyContinue
         if ($pythonPath) {
