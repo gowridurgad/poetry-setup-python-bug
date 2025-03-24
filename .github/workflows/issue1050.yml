@@ -9,28 +9,41 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
 
     - name: Install Python (if not already installed)
       shell: powershell
       run: |
+        # Check if Python is already installed
         if (-not (Get-Command python -ErrorAction SilentlyContinue)) {
           Write-Host "Python not found, installing..."
-          # Install Python (adjust the path and version as necessary)
+          # Download and Install Python
           $pythonInstallerUrl = "https://www.python.org/ftp/python/3.13.0/python-3.13.0.exe"
           $installerPath = "$env:temp\python-installer.exe"
           Invoke-WebRequest -Uri $pythonInstallerUrl -OutFile $installerPath
+          # Install Python and make sure it's added to the PATH
           Start-Process -FilePath $installerPath -ArgumentList "/quiet", "InstallAllUsers=1", "PrependPath=1" -Wait
           Write-Host "Python installed"
         } else {
           Write-Host "Python already installed"
         }
 
-    - name: Install pip
+        # Verify if Python is installed and accessible
+        $pythonPath = Get-Command python -ErrorAction SilentlyContinue
+        if ($pythonPath) {
+          Write-Host "Python found at $pythonPath"
+        } else {
+          Write-Host "Python installation failed. Exiting."
+          exit 1
+        }
+
+    - name: Install pip (if not already installed)
       shell: powershell
       run: |
+        # Check if pip is already installed
         if (-not (Get-Command pip -ErrorAction SilentlyContinue)) {
           Write-Host "pip not found, installing..."
+          # Install pip using Python
           python -m ensurepip --upgrade
           python -m pip install --upgrade pip
           Write-Host "pip installed"
