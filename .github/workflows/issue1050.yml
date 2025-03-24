@@ -27,7 +27,7 @@ jobs:
         }
 
     - name: Install pip
-      shell: pwsh
+      shell: powershell
       run: |
         if (-not (Get-Command pip -ErrorAction SilentlyContinue)) {
           Write-Host "pip not found, installing..."
