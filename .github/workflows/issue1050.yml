@@ -1,25 +1,49 @@
 name: issue1050
-
-on: [workflow_dispatch]
+on:
+  workflow_dispatch:
 
 jobs:
-  build:
+  setup:
     runs-on: self-hosted
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
 
+    - name: Install Python (if not already installed)
+      shell: bash
+      run: |
+        if ! command -v python &> /dev/null; then
+          echo "Python not found, installing..."
+          # Install Python (adjust the path and version as necessary)
+          curl -o python_installer.exe https://www.python.org/ftp/python/3.13.0/python-3.13.0.exe
+          python_installer.exe /quiet InstallAllUsers=1 PrependPath=1
+          echo "Python installed"
+        else
+          echo "Python already installed"
+        fi
+
+    - name: Install pip
+      shell: bash
+      run: |
+        if ! command -v pip &> /dev/null; then
+          echo "pip not found, installing..."
+          python -m ensurepip --upgrade
+          python -m pip install --upgrade pip
+          echo "pip installed"
+        else
+          echo "pip already installed"
+        fi
+
     - name: Set up Python
-      uses: gowridurgad/setup-python@pip-fix
-      id: python
+      uses: actions/setup-python@v5
       with:
-        python-version: '3.13'
+        python-version: '3.13'  # or any version you need
         cache: 'pip'
         cache-dependency-path: 'requirements.txt'
-        architecture: 'x64'
-        update-environment: false
+        update-environment: false  # Do not update environment
 
+   
   
    
        
