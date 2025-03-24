@@ -10,6 +10,10 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+    - name: Install Python and pip
+      run: |
+        sudo apt-get update
+        sudo apt-get install python3.13 python3-pip
 
     - name: Set up Python
       uses: gowridurgad/setup-python@v5
