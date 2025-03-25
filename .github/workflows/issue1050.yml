@@ -17,5 +17,5 @@ jobs:
         python-version: '3.13'
         cache: 'pip'
         cache-dependency-path: 'requirements.txt'
-        update-environment: false  # Do not update environment
+        
 
