@@ -17,6 +17,8 @@ jobs:
         cache: 'pip'
         cache-dependency-path: 'requirements.txt'
         architecture: 'x64'
+    - name: Install dependencies
+      run: pip install -r requirements.txt
         
         
 
