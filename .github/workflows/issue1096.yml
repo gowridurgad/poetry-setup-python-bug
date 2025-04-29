@@ -13,7 +13,9 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v3
       with:
-        python-version: '3.10.16'
+        python-version: '3.10.17'
+      env:
+          ACTIONS_SETUP_PYTHON_DISABLE_PIP_UPGRADE: 'true'
         
     - name: Install dependencies
       run: pip install -r requirements.txt
