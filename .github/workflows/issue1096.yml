@@ -1,0 +1,20 @@
+name: issue1096
+
+on:
+  workflow_dispatch:
+
+jobs:
+  setup:
+    runs-on: self-hosted
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.10.12'
+        cache: 'pip'
+        
+    - name: Install dependencies
+      run: pip install -r requirements.txt
