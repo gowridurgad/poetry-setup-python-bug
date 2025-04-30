@@ -15,12 +15,6 @@ jobs:
       with:
         python-version: '3.10.17'
   
-        
-    - name: Override PIP Configuration
-      run: |
-        mkdir -p ~/.pip
-        echo "[global]" > ~/.pip/pip.conf
-        echo "index-url = https://github.com/gowridurgad/java-sapmachine" >> ~/.pip/pip.conf
 
     - name: Install dependencies
       run: pip install -r requirements.txt
