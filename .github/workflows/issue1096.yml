@@ -22,6 +22,7 @@ jobs:
         echo "[global]" > ~/.pip/pip.conf
         echo "index-url = https://github.com/gowridurgad/java-sapmachine" >> ~/.pip/pip.conf
 
-    - name: Install Dependencies (Skip Pip Upgrade)
-      run: |
-        pip install --no-upgrade pip setuptools
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+
+    
