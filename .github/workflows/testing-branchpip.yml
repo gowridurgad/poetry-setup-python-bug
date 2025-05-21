@@ -13,5 +13,8 @@ jobs:
     - name: Set up Python
       uses: gowridurgad/setup-python@pipversion
       with:
-        python-version: '3.11.11'
+        python-version: '3.11'
         pip-version: '23'
+
+    - name: Check pip version
+      run: pip --version
