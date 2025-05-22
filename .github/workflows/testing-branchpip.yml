@@ -1,11 +1,16 @@
-name: pip-branchtesting
+name: pip-testing
 
 on:
   workflow_dispatch:
 
 jobs:
   setup:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest, macos-13]
+        python-version: ['3.11', '3.12']
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -13,8 +18,11 @@ jobs:
     - name: Set up Python
       uses: gowridurgad/setup-python@pipversion
       with:
-        python-version: '3.11'
+        python-version: '${{ matrix.python-version }}'
         pip-version: '23'
 
     - name: Check pip version
       run: pip --version
+
+
+      
